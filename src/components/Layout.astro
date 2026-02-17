@@ -1,0 +1,63 @@
+---
+const {
+  lang = "ua",
+  title = "Mykola Sudakov",
+  tagline = "",
+  path = "/",
+} = Astro.props;
+
+const isEN = lang === "en";
+
+const nav = isEN
+  ? [
+      { href: "/en/research/", label: "Research" },
+      { href: "/en/projects/", label: "Projects" },
+      { href: "/en/publications/", label: "Publications" },
+      { href: "/en/contact/", label: "Contact" },
+    ]
+  : [
+      { href: "/research/", label: "Дослідження" },
+      { href: "/projects/", label: "Проєкти" },
+      { href: "/publications/", label: "Публікації" },
+      { href: "/contact/", label: "Контакти" },
+    ];
+
+const uaLink = path.startsWith("/en/") ? path.replace("/en", "") : path;
+const enLink = path.startsWith("/en/") ? path : `/en${path}`;
+---
+
+<html lang={isEN ? "en" : "uk"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <div>
+            <h1>{isEN ? "Mykola Sudakov" : "Микола Судаков"}</h1>
+            {tagline && <p class="tagline">{tagline}</p>}
+          </div>
+
+          <nav class="lang" aria-label="Language switch">
+            <a class={!isEN ? "active" : ""} href={uaLink || "/"}>UA</a>
+            <a class={isEN ? "active" : ""} href={enLink || "/en/"}>EN</a>
+          </nav>
+        </div>
+
+        <nav class="nav" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
