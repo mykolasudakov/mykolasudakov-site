@@ -1,58 +1,70 @@
+---
+const {
+  title = "Mykola Sudakov",
+  lang = "en",
+  active = "home", // home | research | projects | publications
+} = Astro.props;
 
+const isUA = lang === "uk";
+const homeHref = isUA ? "/" : "/en/";
+const researchHref = isUA ? "/research/" : "/en/research/";
+const projectsHref = isUA ? "/projects/" : "/en/projects/";
+const publicationsHref = isUA ? "/publications/" : "/en/publications/";
+const switchToHref = isUA ? "/en/" : "/";
 ---
 
-<Layout title="Mykola Sudakov — Research on Work and Social Transformations" lang="en" active="home">
-  <section class="hero">
-    <div>
-      <h1 class="h-title">Mykola Sudakov</h1>
-      <p class="h-tagline">Research on Work and Social Transformations</p>
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
 
-      <div class="h-meta">
-        <div>PhD in Sociology · Associate Professor</div>
-        <div>Academy of Labour, Social Relations and Tourism</div>
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={homeHref}>
+          {isUA ? "Микола Судаков" : "Mykola Sudakov"}
+        </a>
+
+        <nav class="nav">
+          <a class={active === "research" ? "active" : ""} href={researchHref}>
+            {isUA ? "Дослідження" : "Research"}
+          </a>
+          <a class={active === "projects" ? "active" : ""} href={projectsHref}>
+            {isUA ? "Проєкти" : "Projects"}
+          </a>
+          <a class={active === "publications" ? "active" : ""} href={publicationsHref}>
+            {isUA ? "Публікації" : "Publications"}
+          </a>
+        </nav>
+
+        <div class="lang">
+          <a class={isUA ? "active" : ""} href="/">UA</a>
+          <a class={!isUA ? "active" : ""} href="/en/">EN</a>
+        </div>
       </div>
 
-      <p class="h-text">
-        Research focused on labour market regimes, post-war transitions and the structural transformations of work and society.
-      </p>
-      <p class="h-text">
-        Alongside academic work, I develop independent research and advisory practice centred on methodological design and the architecture of applied studies under institutional, political and data constraints.
-      </p>
-
-      <h2 class="section-title">Research Interests</h2>
-      <ul class="bullets">
-        <li>Labour market regimes in conditions of war and recovery</li>
-        <li>Tracer Studies and evaluation systems</li>
-        <li>Career systems and guidance architecture</li>
-        <li>Skills, VET and human capital transformation</li>
-        <li>Digitalisation, AI and structural change</li>
-      </ul>
-    </div>
-
-    <aside class="side-card">
-      <img class="profile-photo" src="/profile.jpg" alt="Mykola Sudakov portrait" loading="lazy" />
-
-      <div class="contact">
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li>
-            <span class="contact-label">Email</span>
-            <a href="mailto:mykola_sudakov@socosvita.kiev.ua">mykola_sudakov@socosvita.kiev.ua</a>
-          </li>
-          <li>
-            <span class="contact-label">ORCID</span>
-            <a href="https://orcid.org/0009-0003-0692-9945" target="_blank" rel="noreferrer">0009-0003-0692-9945</a>
-          </li>
-          <li>
-            <span class="contact-label">Google Scholar</span>
-            <a href="https://scholar.google.com/citations?user=uWIAVjgAAAAJ&hl=uk" target="_blank" rel="noreferrer">Profile</a>
-          </li>
-          <li>
-            <span class="contact-label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/%D0%BC%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0-%D1%81%D1%83%D0%B4%D0%B0%D0%BA%D0%BE%D0%B2-866522180" target="_blank" rel="noreferrer">Profile</a>
-          </li>
-        </ul>
+      <div class="container">
+        <div class="rule"></div>
       </div>
-    </aside>
-  </section>
-</Layout>
+    </header>
+
+    <main class="container page">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-rule"></div>
+        <div class="footer-text">
+          <div>© 2026 Mykola Sudakov</div>
+          <div class="muted">Exploring the structural logics of work and social change.</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,21 +1,57 @@
 ---
-import Layout from "../components/Layout.astro";
----
 
-<Layout
-  lang="ua"
-  title="Микола Судаков — Дослідження трансформацій праці та суспільства"
-  tagline="Дослідження трансформацій праці та суспільства"
-  path="/"
->
-  <h2>Профіль</h2>
-  <p class="lead">
-    Персональний простір досліджень та напрацювань: трансформації праці,
-    соціальні зміни, ринок праці в умовах війни та відновлення, методології оцінювання
-    (зокрема Tracer Studies), карʼєрні системи й консультування, а також теоретична рамка Flashout Age.
-  </p>
+<Layout title="Микола Судаков — Дослідження трансформацій праці та суспільства" lang="uk" active="home">
+  <section class="hero">
+    <div>
+      <h1 class="h-title">Микола Судаков</h1>
+      <p class="h-tagline">Дослідження трансформацій праці та суспільства</p>
 
-  <p class="meta">
-    Див. розділи “Публікації” та “Проєкти” для останніх матеріалів.
-  </p>
+      <div class="h-meta">
+        <div>Кандидат соціологічних наук, доцент</div>
+        <div>Академія праці, соціальних відносин і туризму</div>
+      </div>
+
+      <p class="h-text">
+        Дослідження режимів функціонування ринку праці, поствоєнних переходів та структурних трансформацій праці й суспільства.
+      </p>
+      <p class="h-text">
+        Паралельно з академічною діяльністю розвиваю незалежну дослідницьку та консультативну практику, зосереджену на методологічному дизайні та архітектурі прикладних досліджень в умовах інституційних, політичних та інформаційних обмежень.
+      </p>
+
+      <h2 class="section-title">Напрями досліджень</h2>
+      <ul class="bullets">
+        <li>Режими функціонування ринку праці в умовах війни та відновлення</li>
+        <li>Tracer Studies та системи оцінювання</li>
+        <li>Архітектура кар’єрних систем та консультування</li>
+        <li>Професійна освіта, навички та людський капітал</li>
+        <li>Цифровізація, ШІ та структурні зміни</li>
+      </ul>
+    </div>
+
+    <aside class="side-card">
+      <img class="profile-photo" src="/profile.jpg" alt="Портрет Миколи Судакова" loading="lazy" />
+
+      <div class="contact">
+        <h3>Контакти</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">E-mail</span>
+            <a href="mailto:mykola_sudakov@socosvita.kiev.ua">mykola_sudakov@socosvita.kiev.ua</a>
+          </li>
+          <li>
+            <span class="contact-label">ORCID</span>
+            <a href="https://orcid.org/0009-0003-0692-9945" target="_blank" rel="noreferrer">0009-0003-0692-9945</a>
+          </li>
+          <li>
+            <span class="contact-label">Google Scholar</span>
+            <a href="https://scholar.google.com/citations?user=uWIAVjgAAAAJ&hl=uk" target="_blank" rel="noreferrer">Профіль</a>
+          </li>
+          <li>
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/%D0%BC%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0-%D1%81%D1%83%D0%B4%D0%B0%D0%BA%D0%BE%D0%B2-866522180" target="_blank" rel="noreferrer">Профіль</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </section>
 </Layout>
