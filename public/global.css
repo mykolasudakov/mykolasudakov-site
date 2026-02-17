@@ -1,0 +1,87 @@
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #0b3d2e; /* тимчасовий темно-зелений; заміниш на свій */
+  --border: #e5e7eb;
+  --maxw: 980px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+
+.header{
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  margin-bottom: 28px;
+}
+
+.brand{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.brand h1{
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.brand .tagline{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 56ch;
+}
+
+.nav{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.lang{
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.lang a{ color: var(--muted); }
+.lang a.active{ color: var(--accent); }
+
+main h2{
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.lead{
+  font-size: 16px;
+  max-width: 72ch;
+  color: var(--text);
+}
+
+.meta{
+  color: var(--muted);
+  font-size: 14px;
+}
