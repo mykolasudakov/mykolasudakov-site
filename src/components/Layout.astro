@@ -1,63 +1,59 @@
 ---
-const {
-  lang = "ua",
-  title = "Mykola Sudakov",
-  tagline = "",
-  path = "/",
-} = Astro.props;
-
-const isEN = lang === "en";
-
-const nav = isEN
-  ? [
-      { href: "/en/research/", label: "Research" },
-      { href: "/en/projects/", label: "Projects" },
-      { href: "/en/publications/", label: "Publications" },
-      { href: "/en/contact/", label: "Contact" },
-    ]
-  : [
-      { href: "/research/", label: "Дослідження" },
-      { href: "/projects/", label: "Проєкти" },
-      { href: "/publications/", label: "Публікації" },
-      { href: "/contact/", label: "Контакти" },
-    ];
-
-const uaLink = path.startsWith("/en/") ? path.replace("/en", "") : path;
-const enLink = path.startsWith("/en/") ? path : `/en${path}`;
+import Layout from "../../components/Layout.astro";
 ---
 
-<html lang={isEN ? "en" : "uk"}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <link rel="stylesheet" href="/global.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="brand">
-          <div>
-            <h1>{isEN ? "Mykola Sudakov" : "Микола Судаков"}</h1>
-            {tagline && <p class="tagline">{tagline}</p>}
-          </div>
+<Layout title="Mykola Sudakov — Research on Work and Social Transformations" lang="en" active="home">
+  <section class="hero">
+    <div>
+      <h1 class="h-title">Mykola Sudakov</h1>
+      <p class="h-tagline">Research on Work and Social Transformations</p>
 
-          <nav class="lang" aria-label="Language switch">
-            <a class={!isEN ? "active" : ""} href={uaLink || "/"}>UA</a>
-            <a class={isEN ? "active" : ""} href={enLink || "/en/"}>EN</a>
-          </nav>
-        </div>
+      <div class="h-meta">
+        <div>PhD in Sociology · Associate Professor</div>
+        <div>Academy of Labour, Social Relations and Tourism</div>
+      </div>
 
-        <nav class="nav" aria-label="Primary navigation">
-          {nav.map((item) => (
-            <a href={item.href}>{item.label}</a>
-          ))}
-        </nav>
-      </header>
+      <p class="h-text">
+        Research focused on labour market regimes, post-war transitions and the structural transformations of work and society.
+      </p>
+      <p class="h-text">
+        Alongside academic work, I develop independent research and advisory practice centred on methodological design and the architecture of applied studies under institutional, political and data constraints.
+      </p>
 
-      <main>
-        <slot />
-      </main>
+      <h2 class="section-title">Research Interests</h2>
+      <ul class="bullets">
+        <li>Labour market regimes in conditions of war and recovery</li>
+        <li>Tracer Studies and evaluation systems</li>
+        <li>Career systems and guidance architecture</li>
+        <li>Skills, VET and human capital transformation</li>
+        <li>Digitalisation, AI and structural change</li>
+      </ul>
     </div>
-  </body>
-</html>
+
+    <aside class="side-card">
+      <img class="profile-photo" src="/profile.jpg" alt="Mykola Sudakov portrait" loading="lazy" />
+
+      <div class="contact">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Email</span>
+            <a href="mailto:mykola_sudakov@socosvita.kiev.ua">mykola_sudakov@socosvita.kiev.ua</a>
+          </li>
+          <li>
+            <span class="contact-label">ORCID</span>
+            <a href="https://orcid.org/0009-0003-0692-9945" target="_blank" rel="noreferrer">0009-0003-0692-9945</a>
+          </li>
+          <li>
+            <span class="contact-label">Google Scholar</span>
+            <a href="https://scholar.google.com/citations?user=uWIAVjgAAAAJ&hl=uk" target="_blank" rel="noreferrer">Profile</a>
+          </li>
+          <li>
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/%D0%BC%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0-%D1%81%D1%83%D0%B4%D0%B0%D0%BA%D0%BE%D0%B2-866522180" target="_blank" rel="noreferrer">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+</Layout>
