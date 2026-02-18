@@ -85,3 +85,75 @@ main h2{
   color: var(--muted);
   font-size: 14px;
 }
+.contact-modern {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-modern li {
+  margin: 14px 0;
+}
+
+.contact-modern a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-modern a:hover {
+  color: var(--accent);
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+/* ===== Projects styling ===== */
+
+.project{
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+}
+
+.project:first-of-type{
+  border-top: none;
+}
+
+.project-top{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.project-donor{
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-years{
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-title{
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.project-contrib{
+  margin: 0;
+  max-width: 85ch;
+}
+body{
+  background: pink !important;
+}

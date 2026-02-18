@@ -1,17 +1,26 @@
 ---
 const {
   title = "Mykola Sudakov",
-  lang = "en",
-  active = "home", // home | research | projects | publications
+  active = "home",
 } = Astro.props;
 
-const isUA = lang === "uk";
+const pathname = Astro.url?.pathname ?? "/";
+const isEN = pathname === "/en" || pathname.startsWith("/en/");
+const lang = isEN ? "en" : "uk";
+const isUA = !isEN;
+
 const homeHref = isUA ? "/" : "/en/";
 const researchHref = isUA ? "/research/" : "/en/research/";
 const projectsHref = isUA ? "/projects/" : "/en/projects/";
 const publicationsHref = isUA ? "/publications/" : "/en/publications/";
-const switchToHref = isUA ? "/en/" : "/";
+
+// розумний перемикач
+const stripEnPrefix = (p) => (p === "/en" ? "/" : p.replace(/^\/en(?=\/|$)/, ""));
+const addEnPrefix = (p) => (p === "/" ? "/en/" : `/en${p}`);
+const uaHref = stripEnPrefix(pathname);
+const enHref = addEnPrefix(stripEnPrefix(pathname));
 ---
+
 
 <!doctype html>
 <html lang={lang}>
@@ -42,9 +51,10 @@ const switchToHref = isUA ? "/en/" : "/";
         </nav>
 
         <div class="lang">
-          <a class={isUA ? "active" : ""} href="/">UA</a>
-          <a class={!isUA ? "active" : ""} href="/en/">EN</a>
+          <a class={isUA ? "active" : ""} href={uaHref}>UA</a>
+          <a class={!isUA ? "active" : ""} href={enHref}>EN</a>
         </div>
+
       </div>
 
       <div class="container">

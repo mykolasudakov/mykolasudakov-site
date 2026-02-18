@@ -224,3 +224,144 @@ a:hover{ text-decoration:underline; }
   .h-title{ font-size: 44px; }
   .profile-photo{ width: 280px; }
 }
+* ===== Projects styling ===== */
+
+.project{
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+}
+
+.project:first-of-type{
+  border-top: none;
+}
+
+.project-top{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  gap: 20px;
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.project-donor{
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-years{
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-title{
+   margin-top: 2px;
+   font-weight: 700;
+   font-size: 17px;
+   margin-bottom: 2px;
+}
+
+.project-contrib{
+  color: var(--muted);
+  margin: 2px;
+  max-width: 85ch;
+  margin-bottom: 12;
+}
+.research-cover img {
+  width: 150px;
+  height: auto;
+  display: block;
+  border: 1px solid #ddd;
+}
+.research-item{
+  padding: 20px 0;
+  border-top: 1px solid rgba(16, 74, 75, 0.18);
+}
+
+.research-title{
+  color: var(--accent);
+  margin: 0 0 8px 0;
+}
+
+.research-meta{
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.research-row{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.research-cover{
+  display: block;
+  text-decoration: none;
+}
+
+.research-cover img{
+  width: 220px;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.research-context{
+  margin: 0 0 14px 0;
+}
+
+.research-dl{
+  margin: 0;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 10px;
+  column-gap: 14px;
+}
+
+.research-dl dt{
+  font-weight: 600;
+  color: var(--text);
+}
+
+.research-dl dd{
+  margin: 0;
+  color: var(--text);
+}
+
+.research-links{
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-link{
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid rgba(16, 74, 75, 0.28);
+  border-radius: 999px;
+}
+
+.btn-link:hover{
+  text-decoration: none;
+  border-color: rgba(16, 74, 75, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .research-row{
+    grid-template-columns: 1fr;
+  }
+  .research-cover img{
+    width: min(280px, 100%);
+  }
+  .research-dl{
+    grid-template-columns: 1fr;
+  }
+}
