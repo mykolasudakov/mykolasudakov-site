@@ -224,7 +224,53 @@ a:hover{ text-decoration:underline; }
   .h-title{ font-size: 44px; }
   .profile-photo{ width: 280px; }
 }
-* ===== Projects styling ===== */
+
+* ===== Publications ===== */
+
+.pubs {
+  margin-top: 12px;
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Відстань між публікаціями */
+}
+
+.pub {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(16, 74, 75, 0.18);
+}
+
+.pub:last-child {
+  border-bottom: none;
+}
+
+.pub-year {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.pub-title {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.pub-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dot {
+  color: var(--muted);
+}
+
+
+/* ===== Projects styling ===== */
 
 .project{
   padding: 28px 0;
@@ -269,6 +315,8 @@ a:hover{ text-decoration:underline; }
   max-width: 85ch;
   margin-bottom: 12;
 }
+* ===== Research styling ===== */
+
 .research-cover img {
   width: 150px;
   height: auto;
@@ -364,4 +412,5 @@ a:hover{ text-decoration:underline; }
   .research-dl{
     grid-template-columns: 1fr;
   }
-}
+
+/
